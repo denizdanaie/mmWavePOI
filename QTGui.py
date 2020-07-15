@@ -1,19 +1,23 @@
-import sys
 import argparse
+import construct
+from datetime import datetime
+# import gtrack.gtrack as gtrack
+import joblib
+import numpy as np
 from PySide2 import QtCore, QtWidgets, QtGui,QtOpenGL
 import pyqtgraph as pg
 import pyqtgraph.opengl as pgl
-import numpy as np
-from lib.worker import Worker
-import time
-from lib import frameParser, classifier, storage
 import serial
-from lib.util import *
-import joblib
-from lib.POI import POITracker, Predictor
-from datetime import datetime
-import construct
-import gtrack.gtrack as gtrack
+import time
+
+# scripts from lib/ directory
+import sys
+sys.path.append('lib/')
+import frameParser, classifier, storage
+from worker import Worker
+import util
+from POI import POITracker, Predictor
+
 
 commandport = "COM5"
 dataport = "COM6"
@@ -134,8 +138,6 @@ class Playback(QtCore.QObject):
         except Exception as e:
             print(e)
             self.file.seek(10,1) #probably a file error, skip a bit
-
-
 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self, outputfile, playback , inputfile, recluster):
