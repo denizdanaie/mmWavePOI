@@ -2,13 +2,15 @@ from sklearn import svm
 from sklearn import neural_network as nn
 from sklearn.preprocessing import StandardScaler
 import h5py
-import sys
+
 import numpy as np
 from matplotlib import pyplot as plt
 from joblib import dump, load
 from sklearn.metrics import f1_score
-from lib.classifier import *
-from lib.confusionMatrix import *
+import sys
+sys.path.append('lib/')
+from classifier import *
+from confusionMatrix import *
 
 addRandom = False
 

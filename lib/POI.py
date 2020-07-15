@@ -1,11 +1,11 @@
-from lib.frameParser import Cluster, ParsedFrame
+from frameParser import Cluster, ParsedFrame
 from PySide2 import QtCore
 import numpy as np
 import msgpack
 import msgpack_numpy
 from datetime import datetime
 import joblib
-import lib.util
+import util
 
 msgpack_numpy.patch()
 
