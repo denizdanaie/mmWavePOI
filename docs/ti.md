@@ -18,3 +18,6 @@ In this document you can find user's guide, developer's guide and bunch of stuff
   If you'd like to contribute to the project, you can also find the developer's guide here.
 
 - For this project, *People Counting* example project is used with tuning the configuration <!-- WHICH .cfg file? --> <!-- TODO: explain .cfg file as well -->
+
+<!-- TODO: anything else? -->
+<!-- i cannot see the .cpp or .c code in repo. only the .cfg file, tell me how to, which code, flash which micro -->
