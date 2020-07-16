@@ -15,3 +15,6 @@ recurrent_networks.ipynb is a jupyter notebook using tensorflow to classify the 
 You can use this online in google colab: https://colab.research.google.com/drive/1w-dlOCp_RiF4aoebhJrN33Tra0lLX_z4?usp=sharing
 
 Spread throughout are scripts for inspecting, plotting, and various tools to work with the mmwave data and intermediate formats.
+
+## Packages
+List of needed python packages can be find in [requirements.txt](requirements.txt).
