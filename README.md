@@ -30,6 +30,7 @@ And specific packages like:
 (if you have multiple pythons installed you’ll also want the right version, e.g. -3.7-64)
 (you could care to isolate via `virtualenv`)
 
+### Why you need these packages:
 `construct` make the data parsing easier.
 
 `numpy` For the GUI (e.g. QtGUI), recording, labeling, and classification stuff
