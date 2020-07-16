@@ -18,13 +18,13 @@ from sklearn import manifold
 #enable numpy in msgpack files
 msgpack_numpy.patch()
 
-files = [#"adult_EWI-25.msgpack",
-        #"achtertuinheuvel-1.msgpack" ,
-        #"EWI_2_avond-25.msgpack",
-       #  "EWI_3-26.msgpack" ,
-         #"EWI_solarpanel-29.msgpack",
-        #"schoolpleinheuvel-1.msgpack",
-         "ewitest-18.msgpack"
+files = [#"oldFiles/msgpack/adult_EWI-25.msgpack",
+        #"oldFiles/msgpack/achtertuinheuvel-1.msgpack" ,
+        #"oldFiles/msgpack/EWI_2_avond-25.msgpack",
+        #"oldFiles/msgpack/EWI_3-26.msgpack" ,
+        #"oldFiles/msgpack/EWI_solarpanel-29.msgpack",
+        #"oldFiles/msgpack/schoolpleinheuvel-1.msgpack",
+        "test31-1/ewitest-18.msgpack"
 ]
 
 def get_featurevector(data):

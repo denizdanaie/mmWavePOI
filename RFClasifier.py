@@ -22,27 +22,27 @@ import seaborn as sns
 #enable numpy in msgpack files
 msgpack_numpy.patch()
 
-files = [#"adult_EWI-25.msgpack",
-        #"achtertuinheuvel-1.msgpack" ,
-         #"EWI_2_avond-25.msgpack",
-    #("EWI_3-26.msgpack",2.0,-2) ,
-         #"EWI_solarpanel-29.msgpack",
-        #"schoolpleinheuvel-1.msgpack",
-    #("labeling/ewitest-18.msgpack",2.0,0.0),
-    ("test31-1/mixed-31.msgpack",1.8,-3.3),
-    ("test31-1/football_children.msgpack",1.80,-3.3),
-    ("test31-1/football_2-31.msgpack",1.80,-3.3),
-    ("test31-1/football_3-31.msgpack",1.80,-3.3),
-    ("test31-1/adults-31.msgpack",1.80,-3.3),
-    ("fietsen-20.msgpack",2.0,-2.6),
-    ("fietsen2-20.msgpack",2.0,-2.6),
-    # ("test31-1/one_at_a_time-31.msgpack", 1.80, -3.3),
-    # ("fietsen4-20.msgpack", 2.0, -2.6),
+files = [#"oldFiles/msgpack/adult_EWI-25.msgpack",
+        #"oldFiles/msgpack/achtertuinheuvel-1.msgpack" ,
+        #"oldFiles/msgpack/EWI_2_avond-25.msgpack",
+        #("oldFiles/msgpack/EWI_3-26.msgpack",2.0,-2) ,
+        #"oldFiles/msgpack/EWI_solarpanel-29.msgpack",
+        #"oldFiles/msgpack/schoolpleinheuvel-1.msgpack",
+        #("labeling/ewitest-18.msgpack",2.0,0.0),
+        ("test31-1/mixed-31.msgpack",1.8,-3.3),
+        ("test31-1/football_children.msgpack",1.80,-3.3),
+        ("test31-1/football_2-31.msgpack",1.80,-3.3),
+        ("test31-1/football_3-31.msgpack",1.80,-3.3),
+        ("test31-1/adults-31.msgpack",1.80,-3.3),
+        ("test31-1/fietsen-20.msgpack",2.0,-2.6),
+        ("test31-1/fietsen2-20.msgpack",2.0,-2.6),
+        #("test31-1/one_at_a_time-31.msgpack", 1.80, -3.3),
+        #("test31-1/fietsen4-20.msgpack", 2.0, -2.6),
 ]
 
 val_files = [
     ("test31-1/one_at_a_time-31.msgpack",1.80,-3.3),
-    ("fietsen4-20.msgpack",2.0,-2.6),
+    ("test31-1/fietsen4-20.msgpack",2.0,-2.6),
 ]
 
 def pol2cart(rho, phi):
