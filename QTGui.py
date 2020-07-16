@@ -13,7 +13,7 @@ import time
 # scripts from lib/ directory
 import sys
 sys.path.append('lib/')
-import frameParser, classifier, storage
+import frameParser, classifier
 from worker import Worker
 import util
 from POI import POITracker, Predictor
