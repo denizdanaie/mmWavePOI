@@ -16,5 +16,43 @@ You can use this online in google colab: https://colab.research.google.com/drive
 
 Spread throughout are scripts for inspecting, plotting, and various tools to work with the mmwave data and intermediate formats.
 
-## Packages
-List of needed python packages can be find in [requirements.txt](requirements.txt).
+## Package Dependencies
+
+You can find package dependencies in requirements.txt.
+To installing these libraries:
+
+```py -m pip install -r requirements.txt```
+
+And specific packages like:
+
+```py -m pip install tensorflow```
+
+(if you have multiple pythons installed you’ll also want the right version, e.g. -3.7-64)
+(you could care to isolate via `virtualenv`)
+
+`construct` make the data parsing easier.
+
+`numpy` For the GUI (e.g. QtGUI), recording, labeling, and classification stuff
+
+`msgpack` for serialization of raw / labeled data    (h5py seems abandoned?)
+
+`scikit-learn` used for classification
+
+`joblib` seems used largely to serialize the models
+
+`PySide2`, `PyOpenGL`, `matplotlib` is for GUI plotting stuff
+
+`shiboken2` is required for `PySide2`
+
+`pyserial` Anything that want to talk to the sensor.
+   
+Experiments like those in RFClassifier also want packages like:
+  
+`pandas`
+  
+`seaborn`
+  
+`statsmodels`
+
+And the neural network code in the notebook:
+`tensorflow`
