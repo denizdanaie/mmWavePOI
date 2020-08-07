@@ -1,7 +1,7 @@
 import argparse
 import construct
 from datetime import datetime
-# import gtrack.gtrack as gtrack
+# import gtrack as gtrack
 import joblib
 import numpy as np
 from PySide2 import QtCore, QtWidgets, QtGui,QtOpenGL
@@ -16,11 +16,12 @@ sys.path.append('lib/')
 import frameParser, classifier
 from worker import Worker
 import util
+from util import startSensor
 from POI import POITracker, Predictor
 
 
-commandport = "COM5"
-dataport = "COM6"
+commandport = "COM6"
+dataport = "COM7"
 
 max_targets = 15
 
