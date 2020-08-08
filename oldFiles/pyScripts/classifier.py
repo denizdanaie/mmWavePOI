@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 from joblib import dump, load
 from sklearn.metrics import f1_score
 import sys
-sys.path.append('lib/')
+sys.path.append('../../lib/')
 from classifier import *
 from confusionMatrix import *
 

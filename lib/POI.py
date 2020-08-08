@@ -42,7 +42,7 @@ class POI():
         array = self.pointclouds[-1]
         height = -1
         if(array.shape[0] > 1):
-            _, height = lib.util.pol2cart(array[:,0], array[:,4])
+            _, height = util.pol2cart(array[:,0], array[:,4])
         return np.percentile(height, percentile)
 
     def getPos(self):

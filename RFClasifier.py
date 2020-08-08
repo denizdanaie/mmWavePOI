@@ -8,7 +8,10 @@ from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
 import pandas as pd
 from sklearn.feature_selection import f_classif
-from lib.confusionMatrix import *
+# scripts from lib/ directory
+import sys
+sys.path.append('lib/')
+from confusionMatrix import *
 from sys import argv
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
 from joblib import dump, load

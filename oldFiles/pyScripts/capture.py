@@ -3,13 +3,14 @@ import io
 import pyqtgraph as pg
 import numpy as np
 import serial
-import h5py
+# import h5py
 from datetime import datetime
 import time
 import joblib
 import sklearn
 import classifier
-import lib.frameParser as parser
+sys.path.append('../../lib/')
+import frameParser as parser
 import msgpack
 import msgpack_numpy
 
@@ -32,11 +33,11 @@ datasamples = []
 currentsample = []
 packetsinsample = 0
 
-scaler = joblib.load('scaler.joblib')
+scaler = joblib.load('../../scaler.joblib')
 #model = joblib.load('model_logistic.joblib')
 #model = joblib.load('model_norandom.joblib')
 #model = joblib.load('model_logistic.joblib')
-model = joblib.load('model_svc.joblib')
+model = joblib.load('../../model_svc.joblib')
 classes = ["child", "adult", "bicyclist"]#, "random"]
 n_classes = len(classes)
 
