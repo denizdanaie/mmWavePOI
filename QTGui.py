@@ -16,7 +16,8 @@ sys.path.append('lib/')
 import frameParser, classifier
 from worker import Worker
 import util
-from util import startSensor
+from util import startSensor, pol2cart
+
 from POI import POITracker, Predictor
 
 
