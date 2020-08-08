@@ -75,6 +75,7 @@ class DataHandler(QtCore.QObject):
         frame = self.frames[frameNo]
         locs = []
         for poi in frame:
+            
             offset = frameNo - (poi['lastFrame'] - self.firstFrame)
             if(poi['pointclouds'][offset].size != 0):
                 locs.append(poi['pointclouds'][offset])
@@ -151,12 +152,11 @@ class MyWidget(QtWidgets.QWidget):
         #Set up graphs
         self.graphscontainer = QtWidgets.QHBoxLayout()
 
-        #POI container
+        #POI container- 2D graph
         self.POIs = np.random.rand(10, 2) * 30 - 15
-
         self.plotwindow = pg.PlotWidget()
-        self.plot2 = self.plotwindow.plot(self.POIs, pen=None, symbol='o')
-        self.plotwindow.setRange(xRange=[-10,10], yRange=[0,25])
+        self.plot2 = self.plotwindow.plot(self.POIs, pen=None, symbol='o') 
+        self.plotwindow.setRange(xRange=[-10,10], yRange=[0,25]) #size of the grid of 2D graph
 
         self.textitems = [pg.TextItem(text="") for i in range(max_targets)]
         for x in self.textitems:
@@ -166,7 +166,7 @@ class MyWidget(QtWidgets.QWidget):
         self.graphscontainer.addWidget(self.plotwindow)
         self.plotwindow.sizeHint = QtCore.QSize(100,100)
 
-
+        # 3D graph
         self.glview = pgl.GLViewWidget()
         grid = pgl.GLGridItem()
         self.pointcloud = pgl.GLScatterPlotItem()
@@ -210,7 +210,7 @@ class MyWidget(QtWidgets.QWidget):
         self.layout.addWidget(self.framecounter)
 
         #predictor:
-        self.model = load('randomForrest.joblib')
+        self.model = load('scaler.joblib')
 
 
 
