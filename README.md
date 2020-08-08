@@ -4,10 +4,22 @@ Track, cluster and classify people using the ti mmwave sensor.
 
 This repo is a messy collection of the stuff i did in my thesis. The usefull parts are:
 
-QTGui.py is a capture program for mmwave data.
-use `-h` to see the options
+`QTGui.py` is a capture program for mmwave data.
+use `-h` to see the options. Input files for playback option, from folder `raw/<filename>.bin` can be used. Output files will be of .msgpack format.
+```
+$ python QTGui.py --h
+usage: QTGui.py [-h] [--file FILE] [--playback PLAYBACK] [--clustering]
 
-labeler/labeler.py is a program to inspect the recorded data, and add labels to them.
+readout radar sensor
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --file FILE          filename to store/read
+  --playback PLAYBACK  play back file
+  --clustering         enable reclustering of pointclouds
+```
+
+`labeler.py` is a program to inspect the recorded data, and add labels to them. Input files for playback option, from folder `test31-1/<filename>.msgpack` can be used.
 
 RFClassifier.py is a script to try different classification methods based on scikit-learn.
 
@@ -23,37 +35,5 @@ To installing these libraries:
 
 ```py -m pip install -r requirements.txt```
 
-And specific packages like:
+For more info about requirements.txt checkout [here](docs/requirements.md)
 
-```py -m pip install tensorflow```
-
-(if you have multiple pythons installed you’ll also want the right version, e.g. -3.7-64)
-(you could care to isolate via `virtualenv`)
-
-### Why you need these packages:
-`construct` make the data parsing easier.
-
-`numpy` For the GUI (e.g. QtGUI), recording, labeling, and classification stuff
-
-`msgpack` for serialization of raw / labeled data    (h5py seems abandoned?)
-
-`scikit-learn` used for classification
-
-`joblib` seems used largely to serialize the models
-
-`PySide2`, `PyOpenGL`, `matplotlib` is for GUI plotting stuff
-
-`shiboken2` is required for `PySide2`
-
-`pyserial` Anything that want to talk to the sensor.
-   
-Experiments like those in RFClassifier also want packages like:
-  
-`pandas`
-  
-`seaborn`
-  
-`statsmodels`
-
-And the neural network code in the notebook:
-`tensorflow`
