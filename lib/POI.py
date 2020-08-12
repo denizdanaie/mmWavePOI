@@ -80,7 +80,7 @@ class POITracker(QtCore.QObject):
         tids = [x.tid for x in frame.clusters]
         for poi in self.activePOIs:
             if poi.tid not in tids:
-                if (poi.lastFrame < (currentFrame - 20)):
+                if (poi.lastFrame < (currentFrame - 2)):
                     self.activePOIs.remove(poi)
                     self.onArchive(poi)
 
