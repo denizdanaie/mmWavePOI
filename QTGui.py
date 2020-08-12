@@ -125,7 +125,7 @@ class Playback(QtCore.QObject):
         try:
             parsed = construct.RawCopy(frameParser.frameParser).parse_stream(self.file)
         
-            print(f"Getframe {parsed['offset2']} {self.file.tell()}",flush=True)
+            # print(f"Getframe {parsed['offset2']} {self.file.tell()}",flush=True)
             self.file.seek(parsed['offset2'])
             
             #print(parsed)
@@ -165,7 +165,8 @@ class MyWidget(QtWidgets.QWidget):
         self.graphscontainer = QtWidgets.QHBoxLayout()
 
         #POI container
-        self.POIs = np.random.rand(10, 2) * 30 - 15
+        # self.POIs = np.random.rand(10, 2) * 30 - 15
+        self.POIs = np.zeros((10, 2))
 
         self.plotwindow = pg.PlotWidget()
         self.plot2 = self.plotwindow.plot(self.POIs, pen=None, symbol='o')
@@ -278,6 +279,7 @@ class MyWidget(QtWidgets.QWidget):
         # print(frame.clusters)
         self.POIs = self.POITracker.getLocations()
         pois = self.POITracker.getPOIs()
+        # print('\n\n', self.POIs,'\n\n')
         if args.clustering:
             for i in range(20):
                 if(len(frame.clusters) > i):
