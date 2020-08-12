@@ -153,11 +153,18 @@ class MyWidget(QtWidgets.QWidget):
         self.graphscontainer = QtWidgets.QHBoxLayout()
 
         #POI container- 2D graph
-        self.POIs = np.random.rand(10, 2) * 30 - 15
+        # self.POIs = np.random.rand(10, 2) * 30 - 15
+        self.POIs = np.zeros((10, 2))
+        self.POIsTrack = [[] for _ in range(len(self.POIs))]
+        self.LinesTrack = [[] for _ in range(len(self.POIs))]
+        
+        
         self.plotwindow = pg.PlotWidget()
         self.plot2 = self.plotwindow.plot(self.POIs, pen=None, symbol='o') 
+        for k in range(len(self.POIsTrack)):
+            self.LinesTrack[k] = self.plotwindow.plot(np.array(self.POIsTrack[k]), pen=(np.random.randint(256, size=(3))), symbolBrush=(19,234,201), symbolPen='w', symbol='t1', symbolSize=0.1)
+        
         self.plotwindow.setRange(xRange=[-10,10], yRange=[0,25]) #size of the grid of 2D graph
-
         self.textitems = [pg.TextItem(text="") for i in range(max_targets)]
         for x in self.textitems:
             self.plotwindow.addItem(x)
@@ -258,6 +265,11 @@ class MyWidget(QtWidgets.QWidget):
         # Targets
         # print(frame.clusters)
         pois = self.datahandler.getPOIs(frame)
+        for i in range(len(pois)):
+            self.POIsTrack[i].append(tuple(pois[i]))
+        for k in range(len(self.POIsTrack)):
+            self.LinesTrack[k].setData(np.array(self.POIsTrack[k]))
+        
         if(pois.shape[0] > 0):
             self.POI3D.setData(pos=pois)  # , color = np.array([colormap[i['tid'] % (len(colormap)-1)] for i in packet['data']])).
         self.plot2.setData(pois)
