@@ -50,10 +50,6 @@ class DataHandler(QtCore.QObject):
                         self.frames[i].append(poi) #store a reference for efficient lookup
             self.frames = self.frames[self.firstFrame:] #remove empty frames
 
-
-
-
-
     def getPOIs(self, frameNo):
         frame = self.frames[frameNo]
         #print(frameNo)
@@ -125,9 +121,6 @@ class DataHandler(QtCore.QObject):
     #
     # def getPredictions(self, frameNo):
     #     pointclouds = self.get_pointcloud(frameNo)
-
-
-
 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self, outputfile, playback , inputfile):
@@ -219,8 +212,6 @@ class MyWidget(QtWidgets.QWidget):
         #predictor:
         self.model = load('scaler.joblib')
 
-
-
     def keyPressEvent(self, event):
         #print("test", event.key())
         if event.text() in shortcuts:
@@ -243,7 +234,6 @@ class MyWidget(QtWidgets.QWidget):
             localpoint = self.plotwindow.getViewBox().mapSceneToView(pos)
             self.mouseLocation = localpoint
 
-
     def showPrediction(self, results):
         ti = self.textitems[results['tid']]
         if(results['samples'] > 2):
@@ -255,7 +245,6 @@ class MyWidget(QtWidgets.QWidget):
             ti.setPos(results['x'], results['y'])
         else:
             ti.setText("")
-
 
     def visualizeFrame(self, frame):
 
@@ -303,7 +292,6 @@ def parse_arguments(args):
     parser.add_argument('--playback', help = "play back file" )
     #parser.add_argument('--no_raw', action='store_', help = "dont store raw file")
     return parser.parse_args()
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
