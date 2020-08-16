@@ -1,7 +1,6 @@
 from sklearn import svm
 from sklearn import neural_network as nn
 from sklearn.preprocessing import StandardScaler
-import h5py
 import sys
 import numpy as np
 from matplotlib import pyplot as plt
