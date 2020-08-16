@@ -45,7 +45,7 @@ class DataHandler(QtCore.QObject):
                 firstframe = lastframe - len(poi['track'])
                 if firstframe < self.firstFrame:
                     self.firstFrame = firstframe
-                if( countPointclouds(poi['pointclouds']) > 1):
+                if(countPointclouds(poi['pointclouds']) > 1):
                     for i in range(firstframe, lastframe, 1):
                         self.frames[i].append(poi) #store a reference for efficient lookup
             self.frames = self.frames[self.firstFrame:] #remove empty frames
