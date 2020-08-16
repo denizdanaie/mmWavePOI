@@ -36,7 +36,7 @@ class SerialReceiver(QtCore.QObject):
     def __init__(self):
 
         QtCore.QObject.__init__(self)
-        self.serial = serial.Serial(dataport, 921600)
+        self.serial = serial.Serial(dataport, 19200)
         self.buffer = []
 
     def run(self):
@@ -231,8 +231,6 @@ class MyWidget(QtWidgets.QWidget):
         except Exception as msg:
             print("serial not started!", msg)
 
-
-
     def keyPressEvent(self, event):
         #print("test", event.key())
         mpoint = np.array([self.mouseLocation.x(), self.mouseLocation.y()])
@@ -256,7 +254,6 @@ class MyWidget(QtWidgets.QWidget):
             pos = event
             localpoint = self.plotwindow.getViewBox().mapSceneToView(pos)
             self.mouseLocation = localpoint
-
 
     def showPrediction(self, results):
         ti = self.textitems[results['tid']]
@@ -290,7 +287,7 @@ class MyWidget(QtWidgets.QWidget):
                     self.clusterMesh[i].translate(cluster.info['posx'],cluster.info['posy'],0)  # , color = np.array([colormap[i['tid'] % (len(colormap)-1)] for i in packet['data']])).
                 else:
                     self.clusterMesh[i].resetTransform()
-            self.plot2.setData(self.POIs)
+        self.plot2.setData(self.POIs)
 
         for i in range(len(self.textitems)):
             if len(pois) > i:
@@ -343,18 +340,15 @@ if __name__ == "__main__":
     outputfile = None
     inputfile = None
     if(args.file is not None):
-        outputfile = open(f"{args.file}-{datetime.now().day}.msgpack", "ab")
+        outputfile = open(f"test/{args.file}-{datetime.now().day}.msgpack", "ab")
 
-        rawfile = open(f"raw/{datetime.now().strftime('%y-%m-%d_%H%M')}.bin", "ab")
+        rawfile = open(f"test/{datetime.now().strftime('%y-%m-%d_%H%M')}.bin", "ab")
     if(args.playback is not None):
         inputfile = open(args.playback, 'rb')
         inputfile.seek(0,2)
         print(inputfile.tell())
         inputfile.seek(0,0)
         #inputfile.seek(355000,0)
-
-
-
 
     widget = MyWidget(outputfile, args.playback, inputfile, args.clustering)
     widget.resize(800, 600)
