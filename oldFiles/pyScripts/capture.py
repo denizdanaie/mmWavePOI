@@ -16,8 +16,8 @@ import msgpack_numpy
 
 # commandport = "/dev/ttyACM0"
 # dataport = "/dev/ttyACM1"
-commandport = "COM10"
-dataport = "COM11"
+commandport = "COM6"
+dataport = "COM7"
 
 datasetName = "pointclouds"
 
